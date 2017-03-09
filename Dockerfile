@@ -1,6 +1,6 @@
 # Build a CentOS based system
 
-FROM pesscara/grunt
+FROM mayoqin/grunt
 
 LABEL maintainer "Korfiatis Panagiotis Korfiatis.Panagioits@mayo.edu"
 
@@ -10,7 +10,7 @@ RUN mkdir -p /grunt
 WORKDIR /
 RUN wget https://github.com/QIICR/dcmqi/releases/download/v1.0.4/dcmqi-linux.tar.gz
 RUN gtar -xvzf dcmqi-linux.tar.gz -C /grunt
-COPY docker/dcmqi.gruntfile.yml /grunt.d/gruntfile.yml
+COPY dcmqi.gruntfile.yml /grunt.d/gruntfile.yml
 # Configure Slicer environment
 ENV PATH=/grunt/dcmqi-linux/bin:${PATH}
 # What do we run on startup?
