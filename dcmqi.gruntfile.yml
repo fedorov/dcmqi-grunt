@@ -1,0 +1,39 @@
+server: localhost:9901
+# Working directory
+# This is the directory path used for working files. If left blank,
+# use a system temp directory.
+# NB: To run in the pesscara/grunt docker, this must be set to /data
+directory: /data
+
+# Report Warn status to Consul when we have more than warnLevel jobs
+warnLevel: 3
+# Report Critical status to Consul when we have more than criticalLevel jobs
+warnLevel: 5
+
+# These are the CLI scripts that do not require X11 as determined by:
+# export LD_LIBRARY_PATH=/grunt/Slicer-4.6.2-linux-amd64/lib/Slicer-4.6/:/grunt/Slicer-4.6.2-linux-amd64/lib/Slicer-4.6/cli-modules:/grunt/Slicer-4.6.2-linux-amd64/lib/Teem-1.12.0/:grunt/Slicer-4.6.2-linux-amd64/lib/Python/lib
+#
+# for exe in /grunt/Slicer-4.6.2-linux-amd64/lib/Slicer-4.6/cli-modules/*; do
+#   $exe --xml >& /dev/null
+#   if [[ $? == 0 ]]; then
+#   echo $exe
+#   fi
+# done
+
+cli:
+  - endPoint: itkimage2paramap
+    executable: itkimage2paramap
+  - endPoint: itkimage2segimage
+    executable: itkimage2segimage
+  - endPoint: paramap2itkimage
+    executable: paramap2itkimage
+  - endPoint: segimage2itkimage
+    executable: segimage2itkimage
+  - endPoint: tid1500reader
+    executable: tid1500reader
+  - endPoint: tid1500writer
+    executable: tid1500writer
+
+
+
+
