@@ -22,7 +22,7 @@ warnLevel: 5
 
 services:
   - endPoint: segimage2itkimage
-    commandLine: ["segimage2itkimage", "<inputSEGFileName", "~outputDirName", "-p", "#prefix", "-t", "#outputType"]
+    commandLine: ["segimage2itkimage","--inputDICOM". "<inputSEGFileName", "--outputDirectory", "~outputDirName", "-p", "#prefix", "-t", "#outputType"]
     description: |
       This tool can be used to convert DICOM Segmentation into volumetric segmentations stored as labeled pixels using research format, such as NRRD or NIfTI, and meta information stored in the JSON file format.
 
@@ -46,7 +46,3 @@ cli:
     executable: tid1500reader
   - endPoint: tid1500writer
     executable: tid1500writer
-
-
-
-
